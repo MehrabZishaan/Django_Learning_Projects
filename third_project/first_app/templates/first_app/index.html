@@ -1,0 +1,73 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>First App</title>
+    <link rel="stylesheet" href="{% static 'css/first.css' %}">
+</head>
+<body>
+    <div>
+        <img src="{% static 'images/cox.jpg' %}" alt="Cox's bazar">
+        <img src="{% static 'images/saint.jpg' %}" alt="Saint martin">
+    </div>
+    <h1>We are inside first app</h1>
+    <h1>Author name: {{author}}</h1>
+    {% if age >= 18 %}
+    <p>vai tumi driving license nite parba</p>
+    {% else %}
+    <p>tumi baccha manush. basay jaw.</p>
+    {% endif %}
+
+    {% if marks >= 80 %}
+    <p>vai tumi golden A+ paiso</p>
+    {% elif marks >= 70 and marks <= 79 %}
+    <p>vai tumi A paiso</p>
+    {% elif marks >= 60 and marks <= 69 %}
+    <p>vai tumi B paiso</p>
+    {% elif marks >= 40 and marks <= 59 %}
+    <p>vai tumi pass korso</p>
+    {% else %}
+    <p>vai tumi fail korso</p>
+    {% endif %}
+
+    <table border="1" width="500">
+        <tr>
+            <th>ID</th>
+            <th>Course</th>
+            <th>Teacher</th>
+        </tr>
+        <tr>
+            {% for i in courses %}
+            <tr>
+                <td>{{i.id}}</td>
+                <td>{{i.course}}</td>
+                <td>{{i.teacher}}</td>
+            </tr>
+            {% endfor %}
+        </tr>
+    </table>
+    <p><b>Filters in DTL</b><br>Add Value</p>
+    <h1>{{number | add:'2'}}</h1>
+    <p>is {{number}} Divisible by 3?</p>
+    <h1>{{number | divisibleby:'3'}}</h1>
+    <p>Lenght check of {{name}}</p>
+    <h1>{{name | length}}</h1>
+    <p>Word count of {{name}}</p>
+    <h1>{{name | wordcount}}</h1>
+    <p>Word count of blog</p>
+    <h1>{{blog | wordcount}}</h1>
+    <p>Truncate words and chars of blog</p>
+    <h1>{{blog | truncatewords:'5'}}</h1>
+    <h1>{{blog | truncatechars:'30'}}</h1>
+    <p>Make a list of {{name}}</p>
+    <h1>{{name | make_list}}</h1>
+    <p>Upper case and Lower case</p>
+    <h1>{{name | upper}}</h1>
+    <h1>{{name | lower}}</h1>
+    <p>Join a list into string</p>
+    <h1>{{lst|join:","}}</h1>
+
+</body>
+</html>

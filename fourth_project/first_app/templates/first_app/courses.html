@@ -1,0 +1,19 @@
+{% load first_tags %}
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#ID</th>
+        <th scope="col">Course Name</th>
+        <th scope="col">Course Teacher</th>
+      </tr>
+    </thead>
+    <tbody>
+{% for course in courses %}
+      <tr>
+        <th>{{course.id}}</th>
+        <td>{{course.course}}</td>
+        <td>{{course.teacher}}</td>
+      </tr>
+{% endfor %}
+    </tbody>
+</table>
