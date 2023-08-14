@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% if data %}
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th scope="col">#ID</th>
+        <th scope="col">Task Title</th>
+        <th scope="col">Task Description</th>
+        <th scope="col">Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for item in data %}
+        <tr>
+          <td>{{ item.id }}</td>
+          <td>{{ item.taskTitle }}</td>
+          <td>{{ item.taskDescription }}</td>
+          <td>Completed</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% else %}
+  <h3>No Completed Tasks Available</h3>
+{% endif %}
+
+{% endblock %}
